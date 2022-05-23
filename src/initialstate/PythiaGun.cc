@@ -45,9 +45,9 @@ void PythiaGun::InitTask() {
   }
 
   // No event record printout.
-  readString("Next:numberShowInfo = 0");
-  readString("Next:numberShowProcess = 0");
-  readString("Next:numberShowEvent = 0");
+  // readString("Next:numberShowInfo = 0");
+  //readString("Next:numberShowProcess = 0");
+  // readString("Next:numberShowEvent = 0");
 
   // Standard settings
   readString(
@@ -196,7 +196,7 @@ void PythiaGun::Exec() {
         // only accept gluons and quarks
         // Also accept Gammas to put into the hadron's list
         if (fabs(particle.id()) > 5 &&
-            (particle.id() != 21 && particle.id() != 22))
+            (particle.id() != 21 && particle.id() != 22 && abs(particle.id()) != 13 && abs(particle.id()) != 14 ))
           continue;
       }
       p62.push_back(particle);
