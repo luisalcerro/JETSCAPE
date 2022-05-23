@@ -251,7 +251,7 @@ Parton::Parton(int label, int id, int stat, const FourVector &p,
                const FourVector &x)
     : JetScapeParticleBase::JetScapeParticleBase(label, id, stat, p, x) {
   CheckAcceptability(id);
-  assert(InternalHelperPythia.particleData.isParton(id) || isPhoton(id));
+  assert(InternalHelperPythia.particleData.isParton(id) || isPhoton(id) || InternalHelperPythia.particleData.isLepton(id));
   initialize_form_time();
   set_color(0);
   set_anti_color(0);
@@ -269,7 +269,7 @@ Parton::Parton(int label, int id, int stat, double pt, double eta, double phi,
     : JetScapeParticleBase::JetScapeParticleBase(label, id, stat, pt, eta, phi,
                                                  e, x) {
   CheckAcceptability(id);
-  assert(InternalHelperPythia.particleData.isParton(id) || isPhoton(id));
+  assert(InternalHelperPythia.particleData.isParton(id) || isPhoton(id) || InternalHelperPythia.particleData.isLepton(id) );
   initialize_form_time();
   set_color(0);
   set_anti_color(0);
@@ -302,6 +302,11 @@ void Parton::CheckAcceptability(int id) {
   case 21: // gluon
     break;
   case 22: // photon
+    break;
+  case 13: //muon
+  case -13: //anti-muon
+  case 14: //muon neutrino
+  case -14: //muon anti-neutrino
     break;
   default:
     JSWARN << " error in id = " << id;
