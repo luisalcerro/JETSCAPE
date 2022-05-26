@@ -175,12 +175,12 @@ void PythiaGun::Exec() {
 
       if (!FSR_on) {
         // only accept particles after MPI
-        if (particle.status() != 62)
+        if (particle.status() != 62 && abs(particle.id()) !=13 && abs(particle.id()) !=14)
           continue;
         // only accept gluons and quarks
         // Also accept Gammas to put into the hadron's list
         if (fabs(particle.id()) > 5 &&
-            (particle.id() != 21 && particle.id() != 22))
+            (particle.id() != 21 && particle.id() != 22 && abs(particle.id()) != 13 && abs(particle.id()) != 14))
           continue;
 
         // reject rare cases of very soft particles that don't have enough e to get
@@ -195,8 +195,9 @@ void PythiaGun::Exec() {
           continue;
         // only accept gluons and quarks
         // Also accept Gammas to put into the hadron's list
+	//LFA: also muons and neutrinos
         if (fabs(particle.id()) > 5 &&
-            (particle.id() != 21 && particle.id() != 22 && abs(particle.id()) != 13 && abs(particle.id()) != 14 ))
+            (particle.id() != 21 && particle.id() != 22 && abs(particle.id()) != 13 && abs(particle.id()) != 14))
           continue;
       }
       p62.push_back(particle);
