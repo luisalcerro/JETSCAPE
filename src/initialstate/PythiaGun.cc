@@ -179,6 +179,7 @@ void PythiaGun::Exec() {
           continue;
         // only accept gluons and quarks
         // Also accept Gammas to put into the hadron's list
+	//LFA: accept muons and neutrinos
         if (fabs(particle.id()) > 5 &&
             (particle.id() != 21 && particle.id() != 22 && abs(particle.id()) != 13 && abs(particle.id()) != 14))
           continue;
