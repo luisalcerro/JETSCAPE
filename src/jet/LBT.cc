@@ -190,12 +190,7 @@ void LBT::DoEnergyLoss(double deltaT, double time, double Q2,
       return;
     }
 
-    // LFA: Reject muons and neutrinos
-
-    if (abs(pIn[i].pid()) == 13) {
-      pOut.push_back(pIn[i]);
-      return;
-     }
+ 
 
     // pass particle infomation to LBT array (only pass one particle each time)
 

@@ -265,17 +265,6 @@ void Matter::DoEnergyLoss(double deltaT, double time, double Q2,
     // Reject photons
 
 
-    // LFA: Reject muons and neutrinos 
-    if (abs(pIn[i].pid()) == 13) {
-      VERBOSE(1) << BOLDYELLOW
-		 << " A muon  was RECEIVED with px = " << pIn[i].px()
-		 << " from framework and sent back ";
-
-       pOut.push_back(pIn[i]);
-       return;
-    }
-
-    // LFA: Reject muons and neutrinos 
     
     if (std::abs(pIn[i].pstat()) == 1) {
 
