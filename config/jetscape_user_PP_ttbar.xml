@@ -2,7 +2,7 @@
 
 <jetscape>
   
-  <nEvents> 11 </nEvents>
+  <nEvents> 10 </nEvents>
   
   <outputFilename>test_out_PP</outputFilename>
   <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
